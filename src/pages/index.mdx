@@ -76,7 +76,7 @@ Properly estimating correlations between objects at different spatial scales nec
 
 ## Model Uncertainty
 
-Probabilistic clustering assignments enables us to study epistemic uncertainty in addition to aleatoric uncertainty
+Probabilistic clustering assignments enables us to study epistemic uncertainty in addition to aleatoric uncertainty.
 
 <Figure
     caption="Outline of Model Uncertainty Experiment"
@@ -106,6 +106,15 @@ We forward model galaxy evolution with ODEs and show how we can backpropogate a 
     <Image src={gradient} alt="alt text" />
 </Figure>
 
+## Surrogates
+
+Using surrogates, we have a differential function from the underlying physics straight to the correlation value. We leverage this differentiability to perform Hamiltonian Monte Carlo (HMC) and find posterior distributions over IA parameters most likely to minimize a correlation function.
+
+<Figure
+    caption="Outline of Surrogate Experiment"
+  >
+    <Image src={surrogate} alt="alt text" />
+</Figure>
 
 ## BibTeX citation
 
