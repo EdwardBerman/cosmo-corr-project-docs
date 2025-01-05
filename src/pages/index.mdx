@@ -30,6 +30,7 @@ import uq from "../assets/uq.png"
 import diff from "../assets/diff.png"
 import surrogate from "../assets/surrogates.png"
 import rho from "../assets/bolder_rho1_plot.png"
+import gradient from "../assets/correlation_values.png"
 
 <Header
   title={frontmatter.title}
@@ -89,6 +90,22 @@ Probabilistic clustering assignments enables us to study epistemic uncertainty i
     caption="Rho Statistic with error bars from bootstrap baseline and clustering uncertainty"
   >
     <Image src={rho} alt="alt text" />
+</Figure>
+
+## Differentiability
+
+We forward model galaxy evolution with ODEs and show how we can backpropogate a shear-shear correlation all the way through to the underlying physics. The key method is using skip gradients to pass information from objects created from clustering to their constituent galaxies.
+
+<Figure
+    caption="Outline of Differentiability Experiment"
+  >
+    <Image src={diff} alt="alt text" />
+</Figure>
+
+<Figure
+    caption="Gradients in our experiment"
+  >
+    <Image src={gradient} alt="alt text" />
 </Figure>
 
 
