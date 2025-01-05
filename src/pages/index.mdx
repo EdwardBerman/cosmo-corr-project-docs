@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Layout.astro
-title: ON SOFT CLUSTERING FOR CORRELATION ESTIMATORS: MODEL UNCERTAINTY, DIFFERENTIABILITY, AND SURROGATES 
+title: cosmo-corr 
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
 favicon: /favicon.svg
 thumbnail: /screenshot.png
@@ -26,6 +26,10 @@ export const components = {pre: CodeBlock}
 import outside from "../assets/outside.mp4";
 import transformer from "../assets/transformer.webp";
 import cc from "../assets/alt_CC_logo.png"
+import uq from "../assets/uq.png"
+import diff from "../assets/diff.png"
+import surrogate from "../assets/surrogates.png"
+import rho from "../assets/bolder_rho1_plot.png"
 
 <Header
   title={frontmatter.title}
@@ -71,30 +75,21 @@ import cc from "../assets/alt_CC_logo.png"
 
 Properly estimating correlations between objects at different spatial scales necessitates <LaTeX inline formula="\mathcal{O}(n^2)" /> distance calculations. For this reason, most widely adopted packages for estimating correlations use clustering algorithms to approximate local trends. Methods for quantifying the error introduced by clustering have been understudied. In response, we present an algorithm for estimating correlations that is probabilistic in the way that it clusters objects, enabling us to quantify the uncertainty caused by clustering simply through model inference. We also observe that these soft clustering assignments enable correlation estimators that are theoretically differentiable with respect to their input catalogs. Thus, we follow by building up a theoretical framework for differentiable correlation functions and describe their utility in comparison to existing surrogate models. Notably, we find that the repeated use of the normalization and distance function calls makes gradient calculations slow and sparsity patterns in Jacobians that propagate through the chain rule makes the precision unstable, pointing towards either approximate or surrogate methods as a necessary solution to exact gradients from correlation functions. To that end, we close with a discussion of surrogate models as proxies for correlation functions. We provide an example that demonstrates the efficacy of surrogate models to enable gradient based optimization of astrophysical model parameters, successfully minimizing a correlation function output. Our numerical experiments cover science cases across cosmology, from point spread function (PSF) modeling efforts to gravitational simulations to intrinsic alignments (IA). We release the code used in this study at [https://github.com/EdwardBerman/cosmo-corr](https://github.com/EdwardBerman/cosmo-corr) and [https://github.com/EdwardBerman/jax-cosmo-corr](https://github.com/EdwardBerman/jax-cosmo-corr).
 
-## Julia Implementation and Probabilistic Clustering
+## Model Uncertainty
 
-Use the figure component to display images, videos, equations, or any other element, with an optional caption.
+Probabilistic clustering assignments enables us to study epistemic uncertainty in addition to aleatoric uncertainty
 
 <Figure
-    caption="Diagram of the transformer deep learning architecture."
+    caption="Outline of Model Uncertainty Experiment"
   >
-    <Image src={transformer} alt="alt text" />
+    <Image src={uq} alt="alt text" />
 </Figure>
 
-## Jax Implementation and Differentiability
-
-Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
-
-<TwoColumns>
-  <Figure slot="left" caption="Take a look at this YouTube video.">
-    <YouTubeVideo videoId="wjZofJX0v4M" />
-  </Figure>
-  <Figure slot="right" caption="Now look at this Gaussian Splat, rendered with a React component.">
-    <Splat client:idle />
-  </Figure>
-</TwoColumns>
-
-## Key Results
+<Figure
+    caption="Rho Statistic with error bars from bootstrap baseline and clustering uncertainty"
+  >
+    <Image src={rho} alt="alt text" />
+</Figure>
 
 
 ## BibTeX citation
